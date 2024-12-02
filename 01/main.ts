@@ -1,5 +1,4 @@
-import { createReadStream  } from 'node:fs';
-import * as readline from 'node:readline/promises';
+import { readInputLineByLine } from "../utils/main.ts";
 
 const left: number[] = [];
 const right: number[] = [];
@@ -7,20 +6,12 @@ const dist: number[] = [];
 const sim: number[] = [];
 
 if (import.meta.main) {
-  const stream = createReadStream("01/input.txt");
-
-  const rl = readline.createInterface({
-    input: stream
-  })
-
-  for await (const text of rl) {
+  for await (const text of readInputLineByLine("01/input.txt")) {
     const [l, r] = text.split("   ");
 
     left.push(Number(l));
     right.push(Number(r));
   }
-
-  rl.close();
 
   left.sort();
   right.sort();
