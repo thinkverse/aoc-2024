@@ -7,8 +7,7 @@ if (import.meta.main) {
     const regex = new RegExp(/mul\((\d+)\,(\d+)\)/, "g");
 
     result += Array.from(text.matchAll(regex))
-      .map(((x) => [Number(x[1]), Number(x[2])]))
-      .reduce((acc, arr) => acc + (arr[0] * arr[1]), 0);
+      .reduce((acc, arr) => acc + (Number(arr[1]) * Number(arr[2])), 0);
   }
 
   console.log(result);
