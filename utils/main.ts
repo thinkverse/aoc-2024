@@ -14,4 +14,5 @@ export async function* readInputLineByLine(path: PathLike) {
   }
 
   rl.close();
+  stream.close();
 }
